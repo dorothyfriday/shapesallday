@@ -1,0 +1,8 @@
+#This script goes through all features in a folder and adds an attribute field, filled by the name of the shapefile. Helpful before merging several shapefiles whose names are descriptive.
+import arcpy arcpy.env.workspace = r'c:\temp\x' fcs = arcpy.ListFeatureClasses() for fc in fcs: arcpy.AddField_management(fc, 'shpname','text') arcpy.CalculateField_management(fc, 'shpname', '"'+fc+'"') arcpy.Merge_management(fcs, 'out.shp')
+
+#This is useful to rename attributes in Field Calculator
+Replace( [CLICK_FIELD], “Old Attribute”, “Replacement Attribute”)
+
+Concatenate fields
+[Field Name] & " " & [Field Name] & " " & [Field Name]
